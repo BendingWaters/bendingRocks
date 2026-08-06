@@ -20,7 +20,7 @@ export function Navbar() {
         <>
             <nav className={`fixed z-50 flex items-center justify-between left-1/2 -translate-x-1/2 transition-all duration-500 p-4 ${scrolled ? "lg:w-5xl w-[calc(100vw-14px)] bg-white/60 backdrop-blur-2xl rounded-full mt-4 pl-6 shadow" : "md:px-16 lg:px-24 xl:px-32 w-full"}`}>
                 <Link href="/">
-                    <h1 className={`transition-all duration-500 h-9 w-auto text-md md:text-2xl text-white ${scrolled ? "invert opacity-80" : ""}`} >BendingRocks</h1>
+                    <h1 className={`transition-all duration-500 h-9 w-auto text-xl md:text-2xl text-white ${scrolled ? "invert opacity-80" : ""}`} >BendingRocks</h1>
                 </Link>
 
                 {/* Desktop links */}
