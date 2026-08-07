@@ -2,13 +2,28 @@
 
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const galleryImage1 = "/assets/galleryImage1.png";
 const galleryImage2 = "/assets/galleryImage2.png";
 const galleryImage3 = "/assets/galleryImage3.png";
 
-export function CallToAction() {
+export interface CallToActionProps {
+  headline?: string;
+  copy?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+  microcopy?: string;
+}
+
+export function CallToAction({
+  headline = "Your Next Development Deserves More Than a Logo",
+  copy = "Bring us the land, the plans, the half-formed idea or the property the market is not yet understanding. We will help you find the story — and build the system that moves it.",
+  buttonLabel = "Start a Project",
+  buttonHref = "/contact",
+  microcopy = "Serious projects only. Interesting problems preferred.",
+}: CallToActionProps) {
   return (
     <section className="py-36 px-4 md:px-16 lg:px-24 xl:px-32 w-full flex flex-col items-center justify-center text-center">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
@@ -24,7 +39,7 @@ export function CallToAction() {
           viewport={{ once: true }}
           transition={{ type: "spring", stiffness: 240, damping: 70, mass: 1 }}
         >
-          Your Next Development Deserves More Than a Logo
+          {headline}
         </motion.h2>
 
         <motion.p className="text-zinc-500 text-sm max-w-[400px] mb-7"
@@ -33,22 +48,26 @@ export function CallToAction() {
           viewport={{ once: true }}
           transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
         >
-          Bring us the land, the plans, the half-formed idea or the property the market is not yet understanding. We will help you find the story — and build the system that moves it.
+          {copy}
         </motion.p>
 
-        <motion.button className="bg-black hover:bg-zinc-900 text-white text-sm px-5 py-3.5 rounded-lg transition-all duration-200 flex items-center gap-2 group cursor-pointer"
+        <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
         >
-          <span>Start a Project</span>
-          <MoveRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
-        </motion.button>
+          <Link href={buttonHref} className="bg-black hover:bg-zinc-900 text-white text-sm px-5 py-3.5 rounded-lg transition-all duration-200 flex items-center gap-2 group cursor-pointer">
+            <span>{buttonLabel}</span>
+            <MoveRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
+        </motion.div>
 
-        <p className="text-zinc-400 text-xs mt-5">
-          Serious projects only. Interesting problems preferred.
-        </p>
+        {microcopy && (
+          <p className="text-zinc-400 text-xs mt-5">
+            {microcopy}
+          </p>
+        )}
       </div>
     </section>
   );

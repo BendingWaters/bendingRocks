@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import CountUp from "@/components/count-number";
 
 export function Stats() {
@@ -36,14 +37,16 @@ export function Stats() {
                     A strong development should not arrive in the market looking, sounding and selling like everything else. We uncover what makes a project valuable, turn that value into a distinctive proposition and express it across every touchpoint — from the first investor presentation to the final campaign frame.
                 </motion.p>
 
-                <motion.button className="mt-7 bg-zinc-950 hover:bg-zinc-900 text-white px-7 py-3 rounded-full text-sm transition cursor-pointer"
+                <motion.div className="mt-7"
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
                 >
-                    Meet BendingRocks
-                </motion.button>
+                    <Link href="/about" className="inline-block bg-zinc-950 hover:bg-zinc-900 text-white px-7 py-3 rounded-full text-sm transition">
+                        Meet BendingRocks
+                    </Link>
+                </motion.div>
             </div>
 
             <div className="flex max-lg:flex-col max-lg:gap-10 justify-between max-w-4xl mt-16 md:mt-20">

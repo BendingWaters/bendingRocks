@@ -2,16 +2,27 @@
 
 import { HomeIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function HeroSection() {
     return (
-        <motion.section className="flex flex-col items-center min-h-screen justify-center bg-black bg-[url('/hero-image.png')] bg-cover bg-center bg-no-repeat px-4 w-full"
+        <motion.section className="relative flex flex-col items-center min-h-screen justify-center px-4 w-full overflow-hidden bg-black"
             initial={{ opacity: 0.4 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
         >
-            <motion.div className="bg-white/20 backdrop-blur text-sm text-white pl-2 pr-4 py-1 rounded-full flex items-center gap-2 border border-white/20"
+            <video
+                src="/assets/hero_video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30" />
+
+            {/* <motion.div className="relative z-10 bg-white/20 backdrop-blur text-sm text-white pl-2 pr-4 py-1 rounded-full flex items-center gap-2 border border-white/20"
                 initial={{ y: -20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -19,8 +30,8 @@ export function HeroSection() {
             >
                 <HomeIcon size={16} />
                 <p>Brand, Launch and Growth for Real Estate</p>
-            </motion.div>
-            <motion.h1 className="text-5xl md:text-[64px] text-zinc-50 font-medium max-w-3xl text-center mt-5 leading-tight"
+            </motion.div> */}
+            <motion.h1 className="relative z-10 text-5xl md:text-[64px] text-zinc-50 font-medium max-w-3xl text-center mt-5 leading-tight"
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -28,23 +39,24 @@ export function HeroSection() {
             >
                 We Make Real Estate Impossible to Ignore.
             </motion.h1>
-            <motion.p className="text-white max-w-120 text-center mt-3"
+            {/* <motion.p className="relative z-10 text-white max-w-120 text-center mt-3"
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
             >
                 BendingRocks transforms developments into brands people want to live in, invest in and talk about. From strategy and identity to CGI, campaigns and digital launch systems, we help ambitious properties enter the market with clarity, culture and commercial momentum.
-            </motion.p>
-            <motion.div className="flex items-center gap-4 mt-8"
+            </motion.p> */}
+
+            <motion.div className="relative z-10 flex items-center gap-4 mt-8"
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
             >
-                <button className="bg-zinc-50 hover:bg-zinc-200 px-6 py-2.5 rounded-md text-zinc-800 text-sm font-medium cursor-pointer transition">
+                <Link href="/work" className="bg-zinc-50 hover:bg-zinc-200 px-6 py-2.5 rounded-md text-zinc-800 text-sm font-medium cursor-pointer transition">
                     See Our Work
-                </button>
+                </Link>
                 <button className="border border-slate-200 text-zinc-50 px-5 py-2.5 rounded-md text-sm font-medium cursor-pointer transition group">
                     <div className="relative overflow-hidden">
                         <span className="block transition-transform duration-200 group-hover:-translate-y-full">
@@ -56,14 +68,6 @@ export function HeroSection() {
                     </div>
                 </button>
             </motion.div>
-            <motion.p className="text-white/70 text-sm text-center mt-8"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-            >
-                Keep scrolling. The good part is below.
-            </motion.p>
         </motion.section>
     )
 }
